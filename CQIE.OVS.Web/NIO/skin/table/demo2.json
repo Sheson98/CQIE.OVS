@@ -1,0 +1,43 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 1000,
+    "data": [
+      {
+        "id": 1,
+        "username": "1",
+        "sex": "工作热情，讲课认证，投入",
+        "avgScore": 3
+      },
+      {
+        "id": 2,
+        "username": "2",
+        "sex": "选材适当，教学参考有助于学习",
+        "avgScore": 3
+      },
+      {
+        "id": 3,
+        "username": "3",
+        "sex": "授课内容充实，信息量大",
+        "avgScore": 1
+      },
+      {
+        "id": 4,
+        "username": "4",
+        "sex": "教学方法得当，讲课思路清晰",
+        "avgScore": 2
+      },
+      {
+        "id": 5,
+        "username": "5",
+        "sex": "有意识引导学生发现问题",
+        "avgScore": 3
+      },
+      {
+        "id": 6,
+        "username": "6",
+        "sex": "辅导和作业批改认真",
+        "avgScore": 4
+      }
+    ]
+  }

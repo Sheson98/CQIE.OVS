@@ -1,0 +1,49 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 10,
+    "data": [
+      {
+        "Studentid": 1,
+        "StudentName": "谢聪",
+        "PassWord": "SDASW1235",
+        "StudentCode": 179001043,
+        "ClassNumber":17900010
+      },
+      {
+        "Studentid": 2,
+        "StudentName": "张三",
+        "PassWord": "SDASW1235",
+        "StudentCode": 179001023,
+        "ClassNumber":17900010
+      },
+      {
+        "Studentid": 3,
+        "StudentName": "李四",
+        "PassWord": "SDASW1235",
+        "StudentCode": 179001013,
+        "ClassNumber":17900010
+      },
+      {
+        "Studentid": 4,
+        "StudentName": "王五",
+        "PassWord": "SDASW1235",
+        "StudentCode": 179001022,
+        "ClassNumber":17900010
+      },
+      {
+        "Studentid": 5,
+        "StudentName": "赵六",
+        "PassWord": "SDASW1235",
+        "StudentCode": 179001032,
+        "ClassNumber":17900010
+      },
+      {
+        "Studentid": 6,
+        "StudentName": "赵铁柱",
+        "PassWord": "SDASW1235",
+        "StudentCode": 179001011,
+        "ClassNumber":17900010
+      }
+    ]
+  }

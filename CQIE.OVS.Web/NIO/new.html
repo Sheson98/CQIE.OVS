@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+    <link rel="stylesheet" href="./layui-v2.5.6/css/layui.css"  media="all">
+    <script src="./layui-v2.5.6/layui.js" charset="utf-8"></script>
+</head>
+
+
+  
+  <style>
+      .nav{
+        /*移动nav至右边栏*/
+        margin-left: 60% !important;
+        
+        
+}
+.title-nav{
+  
+  font-size: 28px;
+  margin-top: 15px;
+}
+
+
+  </style>
+<body>
+  <div>
+    <!--指定导航背景色-->
+    <ul class="layui-nav " style="background-color: #393D49;" lay-filter="">
+      <span class="title-txt">教师综合评价管理系统</span>
+        <div class="nav">
+        <li class="layui-nav-item"><a href="">关于系统</a></li>
+        <li class="layui-nav-item "><a href="">产品</a></li>
+        <li class="layui-nav-item"><a href="">开发人员</a></li>
+        <li class="layui-nav-item"><a href="">友情链接</a></li>
+        
+        <li class="layui-nav-item"><a href="login.html">退出系统</a></li>
+       </div>
+    </ul>
+  </div> 
+   <!--侧边栏-->  
+      <ul class="layui-nav layui-nav-tree layui-nav-side  " lay-filter="test" lay-shrink="all" style="margin-top: 3%;">
+        
+          <li class="layui-nav-item layui-nav-itemed" >
+          
+
+            <a href="javascript:;">用户管理</a>
+            <dl class="layui-nav-child">
+              <dd><a href="./StuMannage.html" target="MS"><i class="layui-icon">&#xe613;</i>学生管理</a></dd>
+              <dd><a href="./TeaManage.html" target="MS"><i class="layui-icon">&#xe613;</i>教师管理</a></dd>
+              <dd><a href=""><i class="layui-icon">&#xe613;</i>领导管理</a></dd>
+            </dl>
+          </li>
+
+          <li class="layui-nav-item">
+            <a href="javascript:;">成绩管理</a>
+            <dl class="layui-nav-child">
+              <dd><a href="">成绩查询</a></dd>
+              <dd><a href="">课程查询</a></dd>
+              
+            </dl>
+          </li>
+
+          <li class="layui-nav-item">
+            <a href="javascript:;">评价管理</a>
+            <dl class="layui-nav-child">
+              <dd><a href="./StuEvaluate.html" target="MS">学生评价</a></dd>
+              <dd><a href="./TeaEvaluate.html" target="MS">教师评价</a></dd>
+              <dd><a href="./Quota.html"       target="MS">指标等级设置</a></dd>
+            </dl>
+          </li>
+
+          <li class="layui-nav-item">
+            <a href="javascript:;">角色管理</a>
+            <dl  class="layui-nav-child">
+              <dd><a href="./role.html" target="MS"><i class="layui-icon">&#xe613;</i>角色分配</a></dd>
+            </dl>
+          </li>
+        </ul>
+      
+<div style="height: auto; width: auto; float: left;">
+  <div id="d1" style="width: 200px; height: 800px; float: left; background-color: #393D49;">
+
+  </div>
+  <div id="d2" style="width: 800px; height: auto; float: left;">
+    <iframe src="" frameborder="0"  name="MS" width="1200px"height="800px"></iframe>
+    
+  </div>
+</div>
+
+  
+
+
+        
+  
+</body>
+</html>
+
+
+
+<!--导航栏脚本-->
+<script>
+  //注意：导航 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+var element = layui.element;
+
+element.on('nav(demo)', function(elem){
+          //console.log(elem)
+          layer.msg(elem.text());
+      });
+//…
+});
+</script>
+

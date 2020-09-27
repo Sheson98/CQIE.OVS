@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="keywords" content="教师评价管理系统">
+	<meta name="description" content="教师评价管理系统">
+	<meta name="author" content="AUI, a-ui.com">
+	<title>教师评价管理系统</title>
+	<link href="css\loginstyle.css" rel="stylesheet" type="text/css">
+</head>
+<script>
+	
+	var code ;
+	function createCode(){ 
+	code = new Array();
+	var codeLength = 4;
+	var checkCode = document.getElementById("checkCode");
+	checkCode.value = "";
+	var selectChar = new Array(2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+	for(var i=0;i<codeLength;i++) {
+	   var charIndex = Math.floor(Math.random()*32);
+	   code +=selectChar[charIndex];
+	}
+	checkCode.value = code;
+	}
+	
+	function validate() {
+	var inputCode = document.getElementById("yzm").value.toUpperCase();
+	if(inputCode != code ){ alert("验证码错误！");  return false; }
+	else { alert("验证码正确！"); window.location.href="http://127.0.0.1:5500/new1.html"; return true; }
+	}
+</script>
+
+<body onLoad="createCode()">
+
+<div class="aui-flexView clearfix">
+	<div class="aui-login-bg">
+		<img src="images\body-bg.png" alt="">
+	</div>
+	<div class="aui-login-box">
+		<h2> <!-- class="aui-login-title" -->教师综合评价管理系统</h2>
+		<form action="" id="form1" class="aui-login-form">
+			<p>
+				<i class="icon icon-user"></i>
+				<input type="text" placeholder="用户名">	
+			</p>
+            <p>
+                <i class="icon icon-pass"></i>
+                <input type="password" placeholder="密码">
+                <a href="javascript:;" class="aui-forget1">忘记密码？</a>
+            </p>
+			
+			
+			
+			<p>
+					<i class="icon icon-code"></i>
+				
+				
+					<input type="text" placeholder="图形验证码" id="yzm" size="5"  >
+			
+					<!-- 验证码 -->
+				
+					<a href="" class="aui-forget"><input type="button" id="checkCode" onClick="createCode()" title="刷新验证码"   /></a>
+					
+
+			
+		</p>
+			  
+				
+				
+				
+				
+			
+			
+			
+				
+			
+			<button type="button" class="aui-button-go" onClick="validate()">登录</button>
+			
+		</form>
+	</div>
+
+</div>
+</body>
+
+</html>

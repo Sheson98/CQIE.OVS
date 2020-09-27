@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师管理</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+  <link rel="stylesheet" href="./layui-v2.5.6/css/layui.css"  media="all">
+  <script src="./layui-v2.5.6/layui.js"></script>
+ 
+</head>
+<body>
+    <form class="layui-form" action="" lay-filter="example" id="form1" >
+ 
+        <div class="layui-form-item">
+    
+        <label class="layui-form-label">教师搜索</label>
+        <div class="layui-input-inline">
+          <select name="quiz1">
+            <option value="0">请选择院系</option>
+            <option value="1" selected="">软件学院</option>
+            <option value="2">美术学院</option>
+            <option value="3">大数据学院</option>
+            <option value="4">管理学院</option>
+          </select>
+        </div>
+     
+          <div class="layui-input-inline">
+            <select name="quiz2">
+              <option value="0">按条件筛选</option>
+              <option value="1">教师编号</option>
+              <option value="2" disabled="">教师姓名</option>
+              <option value="3">性别</option>
+              <option value="4">名族</option>
+              
+            </select>
+          </div>
+         
+       
+    
+          
+            <div class="layui-input-inline">
+              <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入内容" class="layui-input">
+            
+           </div>
+          
+            
+              <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            
+        
+          
+         </div>
+        
+      </form>
+      <table class="layui-hide" id="test" lay-filter="test"></table>
+    
+</body>
+</html>
+<script src=".//layui-v2.5.6/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+  //日期
+  laydate.render({
+    elem: '#date'
+  });
+  laydate.render({
+    elem: '#date1'
+  });
+  
+  //创建一个编辑器
+  var editIndex = layedit.build('LAY_demo_editor');
+ 
+  //自定义验证规则
+  form.verify({
+    title: function(value){
+      if(value.length < 5){
+        return '标题至少得5个字符啊';
+      }
+    }
+    ,pass: [
+      /^[\S]{6,12}$/
+      ,'密码必须6到12位，且不能出现空格'
+    ]
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+  //监听指定开关
+  form.on('switch(switchTest)', function(data){
+    layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+      offset: '6px'
+    });
+    layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+  });
+  
+  //监听提交
+  form.on('submit(demo1)', function(data){
+    layer.alert(JSON.stringify(data.field), {
+      title: '最终的提交信息'
+    })
+    return false;
+  });
+ 
+  //表单赋值
+  layui.$('#LAY-component-form-setval').on('click', function(){
+    form.val('example', {
+      "username": "贤心" // "name": "value"
+      ,"password": "123456"
+      ,"interest": 1
+      ,"like[write]": true //复选框选中状态
+      ,"close": true //开关状态
+      ,"sex": "女"
+      ,"desc": "我爱 layui"
+    });
+  });
+  
+  //表单取值
+  layui.$('#LAY-component-form-getval').on('click', function(){
+    var data = form.val('example');
+    alert(JSON.stringify(data));
+  });
+  
+});
+</script>
+
+<!--数据表格脚本-->
+
+<script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+    <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+  </div>
+</script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script>
+  layui.use('table', function(){
+    var table = layui.table;
+    
+    //温馨提示：默认由前端自动合计当前行数据。从 layui 2.5.6 开始： 若接口直接返回了合计行数据，则优先读取接口合计行数据。
+    //详见：https://www.layui.com/doc/modules/table.html#totalRow
+    table.render({
+      elem: '#test'
+      ,url:'/test/table/demo1.json'
+      ,toolbar: '#toolbarDemo'
+      ,title: '用户数据表'
+      ,totalRow: true
+      ,cols: [[
+        {type: 'checkbox', fixed: 'left'}
+        ,{field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true, totalRowText: '合计'}
+        ,{field:'username', title:'教师编号', width:120, edit: 'text'}
+        ,{field:'email', title:'教师姓名', width:150, edit: 'text', templet: function(res){
+          return '<em>'+ res.email +'</em>'
+        }}
+        ,{field:'experience', title:'', width:80, sort: true, totalRow: true}
+        ,{field:'sex', title:'性别', width:80, edit: 'text', sort: true}
+        ,{field:'logins', title:'名族', width:100, sort: true, totalRow: true}
+        ,{field:'sign', title:'院系'}
+        ,{field:'ip', title:'IP', width:120},
+        {field: 'right', title: '操作', width: 200, sort: true, totalRow: true,toolbar: '#barDemo'}
+        
+      ]]
+      ,page: true
+    });
+    
+    //工具栏事件
+    table.on('toolbar(test)', function(obj){
+      var checkStatus = table.checkStatus(obj.config.id);
+      switch(obj.event){
+        case 'getCheckData':
+          var data = checkStatus.data;
+          layer.alert(JSON.stringify(data));
+        break;
+        case 'getCheckLength':
+          var data = checkStatus.data;
+          layer.msg('选中了：'+ data.length + ' 个');
+        break;
+        case 'isAll':
+          layer.msg(checkStatus.isAll ? '全选': '未全选')
+        break;
+      };
+    });
+  });
+  </script>
+  <script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+  </script>

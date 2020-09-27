@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+    <link rel="stylesheet" href="../layui-v2.5.6/css/layui.css"  media="all">
+    <script src="../layui-v2.5.6/layui.js" charset="utf-8"></script>
+</head>
+<style>
+  .layui-rate li{
+    width:25px  !important;
+    height:28px !important;
+    margin-top: 0px;
+  }
+  .layui-rate{
+    height: 35px !important;
+    padding: 0px;
+  }
+</style>
+<body>
+    <table class="layui-table" id="table1"></table>
+    <div><div id="test8"></div></div>
+</body>
+</html>
+<script>
+    layui.use(['table','rate'], function(){
+  var table = layui.table;
+  var rate = layui.rate;
+
+  //第一个实例
+  table.render({
+    elem: '#table1'
+    ,height:600
+    ,url: '../skin/table/demo2.json' //数据接口
+    ,page: false //开启分页
+    ,done:function(res, curr, count){
+        var data = res.data;//返回的json中data数据
+        for (var item in data) {
+                //星级
+                rate.render({
+                    elem: '#avgScore'+data[item].id+''         //绑定元素
+                    , length: 4        //星星个数
+                    , value: data[item].avgScore
+                    , theme: '#FF8000'    //颜色
+                    , text: true           
+                    ,setText: function(value){ //自定义文本的回调
+                        var arrs = {
+                            '1': 'A'
+                            ,'2': 'B'
+                            ,'3': 'C'
+                            ,'4': 'D'
+                            };
+      this.span.text(arrs[value] || ( value + "星"));
+    }
+                });
+      
+            }
+    }
+    ,cols: [[ //表头
+      {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+      ,{field: 'username', title: '序号', width:80}
+      ,{field: 'sex', title: '评价内容', width:400}
+      ,{field: 'avgScore', title: '星级',width: 200,
+                  templet: function(d){
+                  return '<div id="avgScore'+d.id+'"></div>'}}  
+    ]]
+  });
+  
+});
+</script>

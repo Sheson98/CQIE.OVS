@@ -1,0 +1,42 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 10,
+    "data": [
+      {
+        "TeacherID": 1,
+        "TeacherName": "张老师",
+        "PassWord":"1231sds13",
+        "TeacherCode": "Tec1235"
+      },
+      {
+        "TeacherID": 2,
+        "TeacherName": "李老师",
+        "PassWord":"12xsasdds13",
+        "TeacherCode": "Tec1223"
+      },
+      {
+        "TeacherID": 3,
+        "TeacherName": "王老师",
+        "PassWord":"1321ds13",
+        "TeacherCode": "Tec1233"
+      },
+      {
+        "TeacherID": 4,
+        "TeacherName": "谢老师",
+        "PassWord":"123131s13",
+        "TeacherCode": "Tec1225"
+      },
+      {
+        "TeacherID": 5,
+        "TeacherName": "赵老师",
+        "PassWord":"1231dsdas13",
+        "TeacherCode": "Tec1535"
+      },
+      { "TeacherID": 6,
+        "TeacherName": "刘老师",
+        "PassWord":"123sdaafqds13",
+        "TeacherCode": "Tec1123"
+      }
+    ]
+  }

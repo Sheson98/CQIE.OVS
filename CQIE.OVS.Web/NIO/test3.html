@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+<link rel="stylesheet" href="./layui-v2.5.6/css/layui.css"  media="all">
+<script src="./layui-v2.5.6/layui.js" charset="utf-8"></script>
+<body>
+    <div class="layui-tab" lay-filter="dev_tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">基本信息</li>
+            <li>业务信息</li>
+            <li>板卡信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-form">
+               <div class="layui-tab-item layui-show">
+                   <div class="layui-row">
+                       <div class="layui-col-sm2" style="line-height: 36px;text-align: center">设备名称</div>
+                       <div class="layui-col-sm4">
+                           <input class="layui-input" style="width: 215px" id="dev_name" type="text" placeholder="请输入设备名称...">
+                        </div>
+                   <div class="layui-col-sm2" style="line-height: 36px;text-align: center">设备类型</div>
+                   <div class="layui-col-sm4">
+                        <select class="dev_type" id="dev_type" lay-search>
+                        </select>
+                   </div>
+              </div>
+           </div>
+        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item">内容3</div>
+        </div>
+     </div>
+    </div>
+</body>
+</html>
+<script>
+    layui.use('tab',function(){
+        // 切换tab框
+
+element.on('tab(dev_tab)', function(data){
+    $(".layui-tab-item").each(function (item) {
+        $(this).removeClass('layui-show');
+        if(item === data.index){
+            $(this).addClass('layui-show');
+        }
+    });
+});
+ 
+    })
+</script>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <components>
+    <component id="ApprisalService"
+               service="CQIE.RIS.Service.IApprisalService,CQIE.RIS.Service"
+               type="CQIE.RIS.Component.ApprisalComponent,CQIE.RIS.Component"
+               isTransactional="true">
+    </component>
+
+    <component id="Apprisal_DetailService"
+            service="CQIE.RIS.Service.IApprisal_DetailService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.Apprisal_DetailComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="Apprisal_PlanService"
+            service="CQIE.RIS.Service.IApprisal_PlanService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.Apprisal_PlanComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="Apprisal_ResultService"
+            service="CQIE.RIS.Service.IApprisal_ResultService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.Apprisal_ResultComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="ClassService"
+            service="CQIE.RIS.Service.IClassService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.ClassComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="ColloegeService"
+            service="CQIE.RIS.Service.ICollegeService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.CollegeComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="DeptService"
+            service="CQIE.RIS.Service.IDeptService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.DeptComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="LessonService"
+            service="CQIE.RIS.Service.ILessonService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.LessonComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="MarkService"
+            service="CQIE.RIS.Service.IMarkService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.MarkComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="OptionsService"
+            service="CQIE.RIS.Service.IOptionsService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.OptionsComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="SysRoleService"
+            service="CQIE.RIS.Service.ISysRoleService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.SysRoleComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="SysUserService"
+            service="CQIE.RIS.Service.ISysUserService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.SysUserComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+    <component id="SysFunctionService"
+            service="CQIE.RIS.Service.ISysFunctionService,CQIE.RIS.Service"
+            type="CQIE.RIS.Component.SysFunctionComponent,CQIE.RIS.Component"
+            isTransactional="true">
+    </component>
+
+  </components>
+
+</configuration>

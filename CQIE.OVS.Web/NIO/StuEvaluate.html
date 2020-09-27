@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+    <link rel="stylesheet" href="./layui-v2.5.6/css/layui.css"  media="all">
+    <script src="./layui-v2.5.6/layui.js" charset="utf-8"></script>
+</head>
+<style>
+    textarea{
+        width: 300px !important;
+    }
+</style>
+<body>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">学生评价</label>
+        <div class="layui-input-block">
+          <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+      </div>
+
+      <div>
+        <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
+            <thead>
+              <tr>
+                <th lay-data="{type:'checkbox'}">ID</th>
+                <th lay-data="{field:'id', width:80, sort: true}">ID</th>
+                <th lay-data="{field:'username', width:120, sort: true, edit: 'text'}">用户名</th>
+                
+                
+                <th lay-data="{field:'city', edit: 'text', minWidth: 100}">评价内容</th>
+                <th lay-data="{field:'experience', sort: true, edit: 'text'}">评价分数</th>
+              </tr>
+            </thead>
+          </table>
+      </div>
+
+</body>
+</html>
+<script>
+    layui.use('table', function(){
+      var table = layui.table;
+      
+      //监听单元格编辑
+      table.on('edit(test3)', function(obj){
+        var value = obj.value //得到修改后的值
+        ,data = obj.data //得到所在行所有键值
+        ,field = obj.field; //得到字段
+        layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+      });
+    });
+    </script>

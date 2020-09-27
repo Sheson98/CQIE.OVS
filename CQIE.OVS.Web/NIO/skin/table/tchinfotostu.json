@@ -1,0 +1,38 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 10,
+    "data": [
+      {
+          "id":1,
+        "TeacherCode": "Tec32135",
+        "TeacherName": "张老师"
+        
+      },
+      {
+        "id":2,
+        "TeacherCode": "Tec1315",
+        "TeacherName": "王老师"
+      },
+      {
+        "id":3,
+        "TeacherCode": "Tec123235",
+        "TeacherName": "谢老师"
+      },
+      {
+        "id":4,
+        "TeacherCode": "Tec131235",
+        "TeacherName": "赵老师"
+      },
+      {
+        "id":5,
+        "TeacherCode": "Tec123235",
+        "TeacherName": "刘老师"
+      },
+      { 
+          "id":6,
+          "TeacherCode": "Tec12435",
+        "TeacherName": "吴老师"
+      }
+    ]
+  }
